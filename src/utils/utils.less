@@ -1,0 +1,122 @@
+/* common */
+.h100scroll {
+  /* 固定在页面下面的div不能放在这个容器中 */
+  box-sizing: border-box;
+  height: 100%;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  overflow-scrolling: touch;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.wh100 {
+  .w100;
+  .h100;
+}
+
+/* flex */
+.flex {
+  display: flex;
+}
+
+.flexCenter {
+  .flex;
+  align-items: center;
+}
+
+.flexBetween {
+  .flex;
+  justify-content: space-between;
+}
+
+.flexAround {
+  .flex;
+  justify-content: space-around;
+}
+
+.flexJCenter {
+  .flex;
+  justify-content: center;
+}
+
+.flexColumn {
+  .flexCenter;
+  flex-direction: column;
+}
+
+.flex1 {
+  flex: 1 0 0;
+}
+
+.positionCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 省略三个点 */
+.textOmit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 限制行数 number */
+.limitLine(@line) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: @line;
+  overflow: hidden;
+}
+
+/* 开启3d硬件加速 */
+.gpu3d {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+
+// 1px边框
+.hairline(@dir: bottom, @color: #eee) {
+  position: relative;
+
+  &::after {
+    content: " ";
+    position: absolute;
+    pointer-events: none;
+    box-sizing: border-box;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    top: -50%;
+    left: -50%;
+    right: -50%;
+    bottom: -50%;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    border: 0 solid @color;
+
+    border-@{dir}-width: 1px;
+  }
+}
+// 1px边框 end
+
+/* number */
+.font(@font) {
+  font-size: unit(@font, px);
+}
+
+.bg_white {
+  background-color: #fff;
+}
+
+// *******************************************************自定义*******************************************************
